@@ -1,3 +1,5 @@
+# Simple connect four game in python. 
+
 def checkWin(x, y, board):
     player = board[y][x];
     if (board[y][x] == "#"):
