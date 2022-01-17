@@ -7,6 +7,8 @@ For example, given [6, 2, 4, 0, 5, 1, 1, 4, 2, 9], you should return 2, as the o
 # Basically, we'll build an adjacency list, then do a breadth first search to find the shortest way out.
 # A is adjacent to b if b is in the range a.pos +- a.val
 
+# Another solution would be look for all adjacent positions and see which one allows you to reach the next farthest position. 
+
 integers = [6, 2, 4, 0, 5, 1, 1, 4, 2, 9]
 
 # Creates a dictionary where the key is the point, and the value is a list of adjacent points.
