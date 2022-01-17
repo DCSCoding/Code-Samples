@@ -1,7 +1,7 @@
 '''
 This is a project I made for a D&D campaign which generates pages with random runes on it. 
 I experimented with multi-threading here and image compoisiting with PIL. 
-
+For an example of the output, please see the included image.
 '''
 
 from PIL import Image
