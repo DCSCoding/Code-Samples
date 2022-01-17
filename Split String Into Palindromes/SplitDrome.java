@@ -1,3 +1,11 @@
+/*Prompt: Given a string, split it into as few strings as possible such that each string is a palindrome.
+
+For example, given the input string racecarannakayak, return ["racecar", "anna", "kayak"].
+
+Given the input string abc, return ["a", "b", "c"].
+
+Note: This contains multiple solutions: getPalindromes and getPalindromes2. Both produce valid results.*/
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -6,77 +14,8 @@ public class SplitDrome {
 	public static void main(String[] args) {
 		
 		String word = "racecarkayakannafada11";
-		//ArrayList<String> palindromes = getPalindromes(word);
-		
-		//System.out.println(isPalindrome("racecar"));
-		
-		//for(String s : palindromes) {
-			//System.out.println(s);
-		//}
-		
-		//Scanner scanner = new Scanner(System.in);
-		
-		//String word = scanner.next();
-		//benchmark3(word);
 		
 		System.out.println(getPalindromes2(word));
-		//System.out.println(isPalindrome2("Fa"));
-		//scanner.close();
-	}
-	
-	public static void benchmark(String s) {
-		
-		String word = s;
-		long total = 0;
-		
-		for(int i = 0; i < 100000; i++) {
-			long start = System.nanoTime();
-			isPalindrome(word);
-			total += System.nanoTime() - start;
-		}
-		
-		
-		System.out.println(total/100000);
-		total = 0;
-		
-		for(int i = 0; i < 100000; i++) {
-			long start = System.nanoTime();
-			isPalindrome2(word);
-			total += System.nanoTime() - start;
-		}
-		
-		System.out.println(total/100000);
-		
-		
-	}
-	
-	public static void benchmark2(String word) {
-	
-		long total = 0;
-		
-		for(int i = 0; i < 100000; i++) {
-			long start = System.nanoTime();
-			getPalindromes(word);
-			total += System.nanoTime() - start;
-			
-		}
-		
-		System.out.println(total/100000);
-		
-	}
-	
-	public static void benchmark3(String word) {
-		
-		long total = 0;
-		
-		for(int i = 0; i < 100000; i++) {
-			long start = System.nanoTime();
-			getPalindromes2(word);
-			total += System.nanoTime() - start;
-			
-		}
-		
-		System.out.println(total/100000);
 		
 	}
 	
