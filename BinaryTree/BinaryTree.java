@@ -1,3 +1,5 @@
+/*Simple binary tree implementation in Java. Incudes insert/search, get depth, deepest node, return least of leaves, serialize and deserialize*/
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
