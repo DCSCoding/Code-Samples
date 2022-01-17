@@ -25,7 +25,7 @@ remainder = round(sum([a % 1 for a in floats]))
 # it's difference is .8. This forms a list from greatest to least of the numbers with the largest difference after rounding. 
 largest_dif_pairs = sorted([[abs(floats[m] - ints[m]), m] for m in range(len(floats))], reverse=True)[:remainder]
 
-# We add 1 to the numbers with the largest difference after rounding. This assures that the pair wise difference between rounded numbers and their 
+# We add 1 to the numbers with the largest difference after rounding (for each 1 in the rounded remainder). This assures that the pair wise difference between rounded numbers and their 
 # original floats are minimized. 
 
 for i in range(remainder):
