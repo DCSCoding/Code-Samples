@@ -14,14 +14,14 @@ public class Anagramo {
 		String s = "abxaba".toLowerCase();
 		String w = "ab".toLowerCase();
 		
-		/* Creates a hash map which records the frequency of each letter in the word */
+		/* Used for debugging  */
 		HashMap<Integer, Integer> letterMap = getLetterMap(w);
-		/* Prints each letter in the string and their occurences, for debugging */
 		letterMap.forEach((k,v) -> System.out.println((char) k.intValue() + " : " + v));
 	
 		System.out.println(anagramIndices(s, w));
 	}
 	
+	/*Creates a hashmap that records each letter used and its frequency*/
 	public static HashMap<Integer, Integer> getLetterMap(String w){
 		
 		HashMap<Integer, Integer> lettercount = new HashMap<Integer, Integer>();
@@ -36,7 +36,7 @@ public class Anagramo {
 	}
 	
 	public static boolean isAnagram(String s1, String s2) {
-		
+		/* If the same letters are used the same number of items, the hashmaps will be identical, and the strings must be anagrams. */
 		if(getLetterMap(s1).equals(getLetterMap(s2))) {
 			return true;
 		}
