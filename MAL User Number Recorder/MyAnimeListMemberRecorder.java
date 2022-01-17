@@ -1,3 +1,8 @@
+/*Please note that, due to updates to the MAL website, this code is depricated. It will still run and produce output (assuming the save locations 
+are provided), but the parsing is no longer valid. For an example of its output, please see the included excel file (the 2020 tabs).
+
+Note that sensitive information has also been removed from the code body, so it will not run unless the path fields are filled out. */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
