@@ -1,7 +1,7 @@
 '''
-Created on Jan. 24, 2020
+This is a project I made for a D&D campaign which generates pages with random runes on it. 
+I experimented with multi-threading here and image compoisiting with PIL. 
 
-@author: d.sander
 '''
 
 from PIL import Image
