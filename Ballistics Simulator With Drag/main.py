@@ -7,16 +7,18 @@ def update(position, positions, velocity_x, velocity_y, angle_radians, mass_kg, 
     temp_y_pos = position[1]
     temp_v_x = velocity_x
     temp_v_y = velocity_y
-
+           
+    # Updates the force of drag based on current parameters (namely the current velocity)
     drag_x = -.5 * drag_coefficient * gas_density * cross_sectional_area * velocity_x ** 2
     drag_y = -.5 * drag_coefficient * gas_density * cross_sectional_area * velocity_y ** 2
-
+           
     if velocity_y < 0:
         drag_y = .5 * drag_coefficient * gas_density * cross_sectional_area * velocity_y ** 2
-
+    # Updates the acceleration based on gravity / drag
     accel_x = (drag_x / mass_kg)
     accel_y = ((drag_y / mass_kg) + gravity)
-
+    
+    # Updates velocityy based on acceleration and length of the time step.
     velocity_x = velocity_x + accel_x * time_step_seconds
     velocity_y = velocity_y + accel_y * time_step_seconds
 
