@@ -23,6 +23,8 @@ remainder = round(sum([a % 1 for a in floats]))
 
 # Finds which numbers, after rounded, have the largest difference with their unroudned form. For example, if 6.8 was rounded down to 6 (after being cast to int)
 # it's difference is .8. This forms a list from greatest to least of the numbers with the largest difference after rounding. 
+# The list is only as long as the remainder is large, as these are all we need. 
+
 largest_dif_pairs = sorted([[abs(floats[m] - ints[m]), m] for m in range(len(floats))], reverse=True)[:remainder]
 
 # We add 1 to the numbers with the largest difference after rounding (for each 1 in the rounded remainder). This assures that the pair wise difference between rounded numbers and their 
