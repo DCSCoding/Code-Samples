@@ -1,3 +1,7 @@
+# This script is designed to simulate ballistic trajectory, and includes a rudimentary drag calculation.
+# In addition, you can set whether or not there is a floor for the projectile to collide with, and if attractive direction of gravity
+# should switch when the projectile passes the equator. (Parameters hasFloor and gFlip)
+
 import math
 import matplotlib.pylab as plot
 
