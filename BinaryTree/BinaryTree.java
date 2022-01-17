@@ -28,21 +28,26 @@ public class Binarytree {
 		return current;
 	}
 
-	private boolean containsNodeRecursive(Node current, int value) {
+	private int containsNodeRecursive(Node current, int value, int depth) {
 		
 		if(current == null) {
-			return false;
+			return -1;
 		}
 		
 		if(value == current.value) {
-			return true;
+			return depth;
 		}
 		
-		return value < current.value ? containsNodeRecursive(current.left, value) : containsNodeRecursive(current.right, value); 
+		return value < current.value ? containsNodeRecursive(current.left, value, depth+1) : containsNodeRecursive(current.right, value, depth+1); 
 	}
 	
 	public boolean containsNode(int value) {
-		return containsNodeRecursive(root, value);
+		return containsNodeRecursive(root, value, -1) > -1;
+		
+	}
+	
+	public int getDepth(int value, int depth) {
+		return containsNodeRecursive(root, value, depth+1);
 	}
 	
 	public String serialize(Node current) {
