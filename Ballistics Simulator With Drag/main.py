@@ -69,9 +69,6 @@ def update(position, positions, velocity_x, velocity_y, angle_radians, mass_kg, 
         elif temp_y_pos < 0 and position[1] > 0:
 
             # This is the same equation as above but accounting for the fact that we're coming up from below.
-            # I shouldn't have to change this equation at all afaik, because I'm pretty sure it should account for
-            # the direction of the vector already. But I don't sweat the small shit, I just added some - signs
-            # until the math checked out.
 
             time = (math.sqrt(2 * accel_y * temp_y_pos + temp_v_y ** 2) - temp_v_y) / - accel_y
 
