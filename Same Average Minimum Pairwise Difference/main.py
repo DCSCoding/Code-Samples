@@ -18,7 +18,7 @@ floats = [round(a, 1) for a in [random.uniform(0, 10) for b in range(10)]]
 ints = [int(a) for a in floats]
 
 # Finds the "round remainder" after truncating the floats. I.e (1.3, 2.3, 4.4 -> 1, 2, 4 | remainder = .3 + .3 + .4 = 1). We will add this back to the rounded
-# numbers after to make sure the average is the same after rounding.
+# numbers after to make sure the rounded sums are the same.
 remainder = round(sum([a % 1 for a in floats]))
 
 # Finds which numbers, after rounded, have the largest difference with their unroudned form. For example, if 6.8 was rounded down to 6 (after being cast to int)
