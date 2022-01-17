@@ -43,9 +43,7 @@ def update(position, positions, velocity_x, velocity_y, angle_radians, mass_kg, 
         position[1] += (velocity_y + temp_v_y) / 2 * time_step_seconds
 
         # If the object crosses over the median, this will flip gravity and account for the overshoot.
-        # It may make more sense to account for the overshoot before overshooting, but I wrote this bit of code
-        # after the position update code, and don't feel like rewriting it.
-        # There also might be a more simple way to do what I did here, but I didn't think about it too much.
+        
         if temp_y_pos > 0 and position[1] < 0:
             # Figure out how much time it takes to go from the position at the start of the frame to the median.
             time = (math.sqrt(2 * accel_y * temp_y_pos + temp_v_y ** 2) + temp_v_y) / accel_y
