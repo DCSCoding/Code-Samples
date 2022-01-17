@@ -7,28 +7,36 @@ import random
 def average_damage(dice, sides, hit_mod, crit_mult, crit_range, damage_mod, ac):
     total_damage = 0
     hit = 0
+    # Roll a d20 10,000 times
     for i in range(10000):
         damage = 0
         roll = random.randint(1, 20)
+        # If the result is a 1, this is an automatic miss.
         if roll != 1:
+            # Checks if the attack is a critical hit
             if (roll >= crit_range and roll + hit_mod > ac) or roll == 20:
+                # Checks to confrim the crit
                 if random.randint(1, 20) + hit_mod > ac:
+                    # Rolls dice, adds the damage mod, multiples by crit multiplier.
                     for d in range(dice):
                         damage += random.randint(1, sides)
                     damage += damage_mod
                     damage = damage * crit_mult
                 else:
+                    # If the crit is not confirmed, rolls normal damage.
                     for d in range(dice):
                         damage += random.randint(1, sides)
                     damage += damage_mod
+            # If not a crit, rolls normal damage.
             elif roll + hit_mod > ac:
                 for d in range(dice):
                     damage += random.randint(1, sides)
                 damage += damage_mod
         total_damage += damage
+        # Any attack that deals damage counts as a hit.
         if damage > 0:
             hit += 1
-
+    # Return the average damage, and number of hits.
     return total_damage/10000, hit
 
 
