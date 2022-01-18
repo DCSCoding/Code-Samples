@@ -30,8 +30,15 @@ public class PalindromePartition {
         String before = "";
         String after = "";
 
+        //for each string in nibbles, look for the longest palindrome substring. 
+        //The substring is s.substring[i, i+s.length()-x]. In effect, this makes a range of length s.length()-x that starts 
+        // at the beginning of the string, then with each itteration moves one space to the right. After all substrings of length s.length()-x have been
+        // checked, x is incremented, reducing the length of the range (and thus searching for a palindrome one character shorter).
+        // When a palindrome is found, it is added to the list of palindromes. We take what came before and after this substring, and perform the same process on them.
+        // When the list is empty, we return the palindromes we've found. 
+        
         while(!nibbles.isEmpty()){
-            s = nibbles.poll();
+            s = nibbles.poll();         
             for(x = 0; x < s.length(); x++){
                 for(int i = 0; i <= x; i++){
                     String substring = s.substring(i, i+s.length()-x);
