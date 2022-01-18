@@ -4,7 +4,7 @@ For example, given the input string racecarannakayak, return ["racecar", "anna",
 
 Given the input string abc, return ["a", "b", "c"].
 
-Note: This contains multiple solutions: getPalindromes and getPalindromes2. Both produce valid results.*/
+*/
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -15,79 +15,41 @@ public class SplitDrome {
 		
 		String word = "racecarkayakannafada11";
 		
-		System.out.println(getPalindromes2(word));
+		System.out.println(getPalindromes(word));
 		
 	}
-	
 	
 	public static ArrayList<String> getPalindromes(String s){
 		
 		ArrayList<String> palindromes = new ArrayList<String>();
-		
-		if(isPalindrome2(s)) {
-			palindromes.add(s);
-			return palindromes;
-		}
-		
-		
-		String temp1 = s;
-		String temp2 = "";
-		
-		while(!temp1.isEmpty() || !temp2.isEmpty()) {
-			//System.out.println(temp1);
-			
-			if(isPalindrome2(temp1)) { 
-				palindromes.add(temp1);
-				temp1 = temp2;
-				temp2 = "";
-			
-			}else {
-			
-				temp2 += temp1.charAt(temp1.length()-1);
-				temp1 = temp1.substring(0, temp1.length()-1);
-			}
-			
-		}
-		
-		
-		return palindromes;
-	}
-	
-	public static ArrayList<String> getPalindromes2(String s){
-		
-		ArrayList<String> palindromes = new ArrayList<String>();
-		
+		Queue<String> nibbles = new LinkedList<String>();
+		nibbles.add(s);
+
 		int x = 0;
-		int i = s.length();
-		
-		while(x < i) {
-			if(isPalindrome2(s.substring(x, i))){
-				palindromes.add(s.substring(x, i));
-				x = i;
-				i = s.length();
-			}else {
-				i--;
+		String before = "";
+		String after = "";
+
+		while(!nibbles.isEmpty()){
+		    s = nibbles.poll();
+		    for(x = 0; x < s.length(); x++){
+			for(int i = 0; i <= x; i++){
+			    String substring = s.substring(i, i+s.length()-x);
+			    if(isPalindrome2(substring)){
+				palindromes.add(substring);
+				before = s.substring(0, s.indexOf(substring));
+				after = s.substring(s.indexOf(substring)+substring.length(), s.length());
+				nibbles.add(before);
+				nibbles.add(after);
+				x = s.length();
+				break;
+			    };
+
 			}
+
+		    }
 		}
-		
+
 		return palindromes;
-	}
-	
-	public static boolean isPalindrome(String s) {
-		
-		String reverse = "";
-		
-		for(int i = s.length()-1; i > -1; i--) {
-			reverse += s.charAt(i);
-		}
-		
-		
-		if(s.equals(reverse)) {
-			return true;
-		}
-			
-		
-		return false;
 	}
 	
 	public static boolean isPalindrome2(String s) {
