@@ -115,18 +115,13 @@ positions = [0, 0]
 iterations = 250000
 stop = False
 
-# This is the quickest way I could think to adapt the recursive algorithm I had originally written
-# to something that was dynamically allocated and could handle an arbitrary number of iterations.
-
-# Please excuse the variable names.
-
-chungus = (position, positions, vx, vy, angle, mass, gravity, gflip, gasdensity, dragco, csa, timestepsec, hasfloor,
+state = (position, positions, vx, vy, angle, mass, gravity, gflip, gasdensity, dragco, csa, timestepsec, hasfloor,
            floor, stop)
 
 for i in range(iterations):
-    chungus = update(chungus[0], chungus[1], chungus[2], chungus[3], chungus[4], chungus[5], chungus[6], chungus[7],
-                     chungus[8], chungus[9], chungus[10], chungus[11], chungus[12], chungus[13], chungus[14])
-    if chungus[14]:
+    state = update(state[0], state[1], state[2], state[3], state[4], state[5], state[6], state[7],
+                     state[8], state[9], state[10], state[11], state[12], state[13], state[14])
+    if state[14]:
         break
 # print(positions)
 
