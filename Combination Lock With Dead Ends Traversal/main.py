@@ -48,7 +48,7 @@ for x in range(10):
                     adjacents[(x, y, z)].append((x, y - 1, z))
                 if z + 1 < 10 and (x, y, z+1) not in deadends:
                     adjacents[(x, y, z)].append((x, y, z + 1))
-                if z - 1 >= 0 and (x, y, z+-1) not in deadends:
+                if z - 1 >= 0 and (x, y, z-1) not in deadends:
                     adjacents[(x, y, z)].append((x, y, z - 1))
 
 # Beginning of BFS
