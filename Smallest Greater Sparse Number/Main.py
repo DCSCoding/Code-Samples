@@ -4,7 +4,7 @@ Do this in faster than O(N log N) time.'''
 
 # Stores a representation of a binary number in a list.
 num = [0, 0, 0, 1, 1, 0, 1, 0]
-# Makes a copy of that number of later (just used to make comparing the numbers side by side easy)
+# Makes a copy of that number for later (just used to make comparing the numbers side by side easy)
 numcopy = list(num)
 
 i = len(num)-1
